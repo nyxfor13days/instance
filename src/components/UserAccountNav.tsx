@@ -11,13 +11,24 @@ import {
 } from "./ui/DropdownMenu";
 import UserAvatar from "./UserAvatar";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { getSession, signOut } from "next-auth/react";
 
 interface Props {
   user: Pick<User, "name" | "image" | "email">;
 }
 
 export default function UserAccountNav({ user }: Props) {
+  const [id, setId] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    const getId = async () => {
+      const session = await getSession();
+      setId(session?.user?.id || null);
+    };
+
+    getId();
+  }, []);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -32,7 +43,7 @@ export default function UserAccountNav({ user }: Props) {
 
       <DropdownMenuContent className="bg-background" align="end">
         <DropdownMenuItem className="flex items-center justify-start gap-2 p-4">
-          <Link href="/profile" className="flex flex-col space-y-1 leading-none">
+          <Link href={`/profile/${id}`} className="flex flex-col space-y-1 leading-none">
             {user.name && <span className="font-medium">{user.name}</span>}
             {user.email && <span className="w-[200px] truncate text-sm text-accent-foreground">{user.email}</span>}
           </Link>
