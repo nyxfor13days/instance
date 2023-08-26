@@ -14,14 +14,18 @@ export const metadata: Metadata = {
 
 interface Props {
   children: React.ReactNode;
+  authModal: React.ReactNode;
 }
 
-export default function RootLayout({ children }: Props) {
+export default function RootLayout({ children, authModal }: Props) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
+
+          {authModal}
+
           <div className="container max-w-7xl">{children}</div>
 
           <Toaster />
