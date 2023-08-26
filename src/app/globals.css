@@ -54,6 +54,6 @@
     @apply border-border;
   }
   body {
-    @apply pt-12 bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased;
   }
 }
