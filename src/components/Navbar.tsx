@@ -9,7 +9,7 @@ export default async function Navbar() {
   const session = await getAuthSession();
 
   return (
-    <div className="fixed top-0 inset-x-0 h-fit bg-background border-b border-accent z-10 py-2">
+    <div className="fixed top-0 left-0 right-0 h-fit bg-background border-b border-accent z-10 py-2">
       <div className="container max-w-7xl h-full flex items-center justify-between gap-2">
         <Logo />
 
