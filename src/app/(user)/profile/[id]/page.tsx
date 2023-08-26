@@ -15,7 +15,7 @@ export default async function page({ params }: Props) {
   const user = session?.user;
 
   return (
-    <main className="grid grid-cols-3 place-content-center gap-2">
+    <main className="py-12 grid grid-cols-3 place-content-center gap-2">
       <aside className="hidden md:block col-span-1 border-r border-accent">
         <div className="py-6 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
