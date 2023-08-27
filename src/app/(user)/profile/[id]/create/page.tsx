@@ -39,6 +39,23 @@ export default function Page() {
     setTextData(values);
   }
 
+  React.useEffect(() => {
+    setArrayData((prev) => ({
+      ...prev,
+      skills: skills,
+      socials: [],
+      education: [],
+      experience: [],
+      projects: [],
+      achievements: [],
+      hobbies: [],
+      languages: [],
+      interests: [],
+      references: [],
+      certifications: [],
+    }));
+  }, [skills]);
+
   return (
     <main className="py-12 min-h-screen flex items-center">
       <div className="container max-w-3xl flex flex-col items-center gap-4">

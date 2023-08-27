@@ -4,7 +4,7 @@ import React from "react";
 import * as z from "zod";
 import { Button } from "@/components/ui/Button";
 import { labelVariants } from "@/components/ui/Label";
-import { PlusIcon } from "@radix-ui/react-icons";
+import { PlusIcon, TrashIcon } from "@radix-ui/react-icons";
 import { DataTable } from "./data-table";
 import { columns } from "./columns";
 import { skillSchema } from "../schema";
@@ -37,6 +37,7 @@ import {
   SelectValue,
 } from "@/components/ui/Select";
 import { toast } from "@/hooks/use-toast";
+import { RowSelectionState } from "@tanstack/react-table";
 
 interface Props {
   data: z.infer<typeof skillSchema>[];
@@ -44,6 +45,8 @@ interface Props {
 }
 
 export default function Skills({ data, setData }: Props) {
+  const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
+
   const form = useForm<z.infer<typeof skillSchema>>({
     resolver: zodResolver(skillSchema),
     defaultValues: {
@@ -57,9 +60,15 @@ export default function Skills({ data, setData }: Props) {
     toast({
       variant: "default",
       title: "Success",
-      description: `${values.name} Skill added as ${values.level} level.`,
+      description: `${values?.name} Skill added as ${values?.level} level.`,
     });
     form.reset();
+  };
+
+  const deleteRows = () => {
+    const newData = data.filter((_, i) => !rowSelection[i]);
+    setData(newData);
+    setRowSelection({});
   };
 
   return (
@@ -135,9 +144,20 @@ export default function Skills({ data, setData }: Props) {
             </Form>
           </DialogContent>
         </Dialog>
+
+        {Object.keys(rowSelection).length > 0 && (
+          <Button variant="destructive" size="icon" onClick={deleteRows}>
+            <TrashIcon />
+          </Button>
+        )}
       </div>
 
-      <DataTable columns={columns} data={data} />
+      <DataTable
+        columns={columns}
+        data={data}
+        rowSelection={rowSelection}
+        setRowSelection={setRowSelection}
+      />
     </div>
   );
 }
