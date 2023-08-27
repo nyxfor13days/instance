@@ -12,26 +12,24 @@ export const skillSchema = z.object({
   level: z.string(),
 });
 
+export const educationSchema = z.object({
+  school: z.string().min(1).max(50),
+  degree: z.string().min(1).max(50),
+  field: z.string().min(1).max(50),
+  from: z.date(),
+  to: z.date(),
+  current: z.boolean(),
+  description: z.string().min(1).max(500),
+});
+
 export const arrayFormSchema = z.object({
   skills: z.array(skillSchema).optional(),
+  education: z.array(educationSchema).optional(),
   socials: z.array(
     z
       .object({
         name: z.string().min(1).max(50),
         url: z.string().min(1).max(50),
-      })
-      .optional()
-  ),
-  education: z.array(
-    z
-      .object({
-        school: z.string().min(1).max(50),
-        degree: z.string().min(1).max(50),
-        field: z.string().min(1).max(50),
-        from: z.string().min(1).max(50),
-        to: z.string().min(1).max(50),
-        current: z.boolean(),
-        description: z.string().min(1).max(500),
       })
       .optional()
   ),
