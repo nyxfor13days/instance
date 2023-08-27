@@ -1,22 +1,19 @@
 "use client";
 
-import React from "react";
-import * as z from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { textFormSchema, arrayFormSchema, skillSchema } from "./schema";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import * as z from 'zod';
+
+import { Button } from '@/components/ui/Button';
 import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/Form";
-import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
-import { Textarea } from "@/components/ui/Textarea";
-import Skills from "./_skills";
+    Form, FormControl, FormField, FormItem, FormLabel, FormMessage
+} from '@/components/ui/Form';
+import { Input } from '@/components/ui/Input';
+import { Textarea } from '@/components/ui/Textarea';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+import Skills from './_skills';
+import { arrayFormSchema, skillSchema, textFormSchema } from './schema';
 
 export default function Page() {
   const [textData, setTextData] =

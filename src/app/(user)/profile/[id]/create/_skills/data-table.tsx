@@ -1,21 +1,11 @@
 "use client";
 
 import {
-  ColumnDef,
-  RowSelectionState,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
-
+    Table, TableBody, TableCell, TableHead, TableHeader, TableRow
+} from '@/components/ui/Table';
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/Table";
+    ColumnDef, flexRender, getCoreRowModel, RowSelectionState, useReactTable
+} from '@tanstack/react-table';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
