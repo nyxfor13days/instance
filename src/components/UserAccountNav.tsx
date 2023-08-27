@@ -14,7 +14,7 @@ import UserAvatar from "./UserAvatar";
 import Link from "next/link";
 import { getSession, signOut } from "next-auth/react";
 import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { DesktopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 interface Props {
   user: Pick<User, "name" | "image" | "email">;
@@ -80,12 +80,24 @@ export default function UserAccountNav({ user }: Props) {
         <DropdownMenuItem
           onSelect={(event) => {
             event.preventDefault();
-            setTheme(theme === "dark" ? "light" : "dark");
+            setTheme(
+              theme === "dark"
+                ? "system"
+                : theme === "system"
+                ? "light"
+                : "dark"
+            );
           }}
           className="flex items-center justify-between cursor-pointer"
         >
           <span>Toggle Theme</span>
-          {theme === "dark" ? <MoonIcon /> : <SunIcon />}
+          {theme === "dark" ? (
+            <MoonIcon />
+          ) : theme === "system" ? (
+            <DesktopIcon />
+          ) : (
+            <SunIcon />
+          )}
         </DropdownMenuItem>
 
         <DropdownMenuItem
