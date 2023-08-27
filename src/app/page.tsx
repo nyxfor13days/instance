@@ -8,7 +8,8 @@ export default function page() {
         <div className="p-4 max-w-lg flex items-start gap-4 bg-card text-card-foreground rounded shadow-md">
           <InfoCircledIcon className="w-6 h-6" />
           <p className="text-sm">
-            Posts are currently not ready. We are working on the development and will be availabel to users soon.
+            Posts are currently not ready. We are working on the development and
+            will be availabel to users soon.
           </p>
         </div>
       </div>

@@ -13,7 +13,7 @@ export default function page() {
           href="/"
           className={cn(
             buttonVariants({ variant: "secondary", size: "icon" }),
-            "self-start -mt-20 flex items-center gap-2"
+            "self-start -mt-20 flex items-center gap-2",
           )}
         >
           <ArrowLeftIcon />
