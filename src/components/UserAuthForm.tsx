@@ -21,7 +21,8 @@ export default function UserAuthForm({ className, ...props }: Props) {
     } catch (error) {
       toast({
         title: "An error occurred",
-        description: "There was an error while trying to sign in with Google. Please try again later.",
+        description:
+          "There was an error while trying to sign in with Google. Please try again later.",
         variant: "destructive",
       });
     } finally {
@@ -31,7 +32,12 @@ export default function UserAuthForm({ className, ...props }: Props) {
 
   return (
     <div className={cn("flex justify-center", className)} {...props}>
-      <Button isLoading={isLoading} size="sm" className="w-full flex items-center gap-2" onClick={loginWithGoogle}>
+      <Button
+        isLoading={isLoading}
+        size="sm"
+        className="w-full flex items-center gap-2"
+        onClick={loginWithGoogle}
+      >
         {isLoading ? <ReloadIcon className="animate-spin" /> : <RocketIcon />}
         Google
       </Button>

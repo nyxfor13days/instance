@@ -23,7 +23,10 @@ export default function SignIn() {
 
         <p className="text-sm max-w-xs mx-auto">
           Don&apos;t have an account?{" "}
-          <Link href="/sign-up" className="text-accent-foreground/75 underline underline-offset-8">
+          <Link
+            href="/sign-up"
+            className="text-accent-foreground/75 underline underline-offset-8"
+          >
             Sign Up
           </Link>
         </p>

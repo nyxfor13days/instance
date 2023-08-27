@@ -43,9 +43,16 @@ export default function UserAccountNav({ user }: Props) {
 
       <DropdownMenuContent className="bg-background" align="end">
         <DropdownMenuItem className="flex items-center justify-start gap-2 p-4">
-          <Link href={`/profile/${id}`} className="flex flex-col space-y-1 leading-none">
+          <Link
+            href={`/profile/${id}`}
+            className="flex flex-col space-y-1 leading-none"
+          >
             {user.name && <span className="font-medium">{user.name}</span>}
-            {user.email && <span className="w-[200px] truncate text-sm text-accent-foreground">{user.email}</span>}
+            {user.email && (
+              <span className="w-[200px] truncate text-sm text-accent-foreground">
+                {user.email}
+              </span>
+            )}
           </Link>
         </DropdownMenuItem>
 

@@ -9,7 +9,12 @@ export default function CloseModal() {
   const router = useRouter();
 
   return (
-    <Button aria-label="close modal" variant="ghost" size="icon" onClick={() => router.back()}>
+    <Button
+      aria-label="close modal"
+      variant="ghost"
+      size="icon"
+      onClick={() => router.back()}
+    >
       <Cross1Icon />
     </Button>
   );
