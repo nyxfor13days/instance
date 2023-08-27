@@ -6,12 +6,15 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/DropdownMenu";
 import UserAvatar from "./UserAvatar";
 import Link from "next/link";
 import { getSession, signOut } from "next-auth/react";
+import { useTheme } from "next-themes";
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 interface Props {
   user: Pick<User, "name" | "image" | "email">;
@@ -19,6 +22,8 @@ interface Props {
 
 export default function UserAccountNav({ user }: Props) {
   const [id, setId] = React.useState<string | null>(null);
+
+  const { theme, setTheme } = useTheme();
 
   React.useEffect(() => {
     const getId = async () => {
@@ -71,6 +76,17 @@ export default function UserAccountNav({ user }: Props) {
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
+
+        <DropdownMenuItem
+          onSelect={(event) => {
+            event.preventDefault();
+            setTheme(theme === "dark" ? "light" : "dark");
+          }}
+          className="flex items-center justify-between cursor-pointer"
+        >
+          <span>Toggle Theme</span>
+          {theme === "dark" ? <MoonIcon /> : <SunIcon />}
+        </DropdownMenuItem>
 
         <DropdownMenuItem
           onSelect={(event) => {
