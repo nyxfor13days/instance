@@ -1,11 +1,11 @@
 "use client";
 
-import * as z from 'zod';
+import * as z from "zod";
 
-import { Checkbox } from '@/components/ui/Checkbox';
-import { ColumnDef } from '@tanstack/react-table';
+import { Checkbox } from "@/components/ui/Checkbox";
+import { ColumnDef } from "@tanstack/react-table";
 
-import { skillSchema } from '../schema';
+import { skillSchema } from "../schema";
 
 export const columns: ColumnDef<z.infer<typeof skillSchema>>[] = [
   {

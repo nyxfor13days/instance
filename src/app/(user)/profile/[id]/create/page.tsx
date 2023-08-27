@@ -34,7 +34,7 @@ export default function Page() {
   const [arrayData, setArrayData] =
     React.useState<z.infer<typeof arrayFormSchema>>();
   const [socials, setSocials] = React.useState<z.infer<typeof socialsSchema>[]>(
-    []
+    [],
   );
   const [skills, setSkills] = React.useState<z.infer<typeof skillSchema>[]>([]);
   const [education, setEducation] = React.useState<

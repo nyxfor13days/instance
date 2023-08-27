@@ -198,7 +198,7 @@ export default function Education({ data, setData }: Props) {
                                     variant={"outline"}
                                     className={cn(
                                       "w-[280px] justify-start text-xs text-left font-normal",
-                                      !field.value && "text-muted-foreground"
+                                      !field.value && "text-muted-foreground",
                                     )}
                                   >
                                     <CalendarIcon className="mr-2 h-4 w-4" />
@@ -240,7 +240,7 @@ export default function Education({ data, setData }: Props) {
                                     variant={"outline"}
                                     className={cn(
                                       "w-[280px] justify-start text-xs text-left font-normal",
-                                      !field.value && "text-muted-foreground"
+                                      !field.value && "text-muted-foreground",
                                     )}
                                   >
                                     <CalendarIcon className="mr-2 h-4 w-4" />

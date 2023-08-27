@@ -85,7 +85,7 @@ export default function UserAccountNav({ user }: Props) {
                 ? "system"
                 : theme === "system"
                 ? "light"
-                : "dark"
+                : "dark",
             );
           }}
           className="flex items-center justify-between cursor-pointer"

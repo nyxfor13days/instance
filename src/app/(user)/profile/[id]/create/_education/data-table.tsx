@@ -1,11 +1,20 @@
 "use client";
 
 import {
-    Table, TableBody, TableCell, TableHead, TableHeader, TableRow
-} from '@/components/ui/Table';
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/Table";
 import {
-    ColumnDef, flexRender, getCoreRowModel, RowSelectionState, useReactTable
-} from '@tanstack/react-table';
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  RowSelectionState,
+  useReactTable,
+} from "@tanstack/react-table";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -41,7 +50,7 @@ export function DataTable<TData, TValue>({
                       ? null
                       : flexRender(
                           header.column.columnDef.header,
-                          header.getContext()
+                          header.getContext(),
                         )}
                   </TableHead>
                 );

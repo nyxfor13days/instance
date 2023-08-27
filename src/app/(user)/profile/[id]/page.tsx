@@ -47,7 +47,7 @@ export default function Profile({ params }: Props) {
           description: "Could not load profile.",
         });
       },
-    }
+    },
   );
 
   const { isLoading: userLoading } = useQuery(
@@ -57,7 +57,7 @@ export default function Profile({ params }: Props) {
       onSuccess: (res) => {
         setUser(res.data);
       },
-    }
+    },
   );
 
   if (profileLoading || userLoading)

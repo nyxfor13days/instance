@@ -1,30 +1,45 @@
 "use client";
 
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
+import React from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
-import { Button } from '@/components/ui/Button';
+import { Button } from "@/components/ui/Button";
 import {
-    Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger
-} from '@/components/ui/Dialog';
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/Dialog";
 import {
-    Form, FormControl, FormField, FormItem, FormLabel, FormMessage
-} from '@/components/ui/Form';
-import { Input } from '@/components/ui/Input';
-import { labelVariants } from '@/components/ui/Label';
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/Form";
+import { Input } from "@/components/ui/Input";
+import { labelVariants } from "@/components/ui/Label";
 import {
-    Select, SelectContent, SelectItem, SelectTrigger, SelectValue
-} from '@/components/ui/Select';
-import { toast } from '@/hooks/use-toast';
-import { cn } from '@/lib/utils';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { PlusIcon, TrashIcon } from '@radix-ui/react-icons';
-import { RowSelectionState } from '@tanstack/react-table';
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/Select";
+import { toast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { PlusIcon, TrashIcon } from "@radix-ui/react-icons";
+import { RowSelectionState } from "@tanstack/react-table";
 
-import { skillSchema } from '../schema';
-import { columns } from './columns';
-import { DataTable } from './data-table';
+import { skillSchema } from "../schema";
+import { columns } from "./columns";
+import { DataTable } from "./data-table";
 
 interface Props {
   data: z.infer<typeof skillSchema>[];
