@@ -123,13 +123,11 @@ export default function Page() {
                 )}
               />
 
+              <Skills data={skills} setData={setSkills} />
+
               <Button type="submit">Submit</Button>
             </form>
           </Form>
-
-          <div className="flex flex-col gap-4">
-            <Skills data={skills} setData={setSkills} />
-          </div>
         </div>
       </div>
     </main>
