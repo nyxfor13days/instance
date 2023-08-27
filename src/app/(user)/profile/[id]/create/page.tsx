@@ -44,6 +44,8 @@ export default function Page() {
   const textForm = useForm<z.infer<typeof textFormSchema>>({
     resolver: zodResolver(textFormSchema),
     defaultValues: {
+      name: "",
+      email: "",
       profession: "",
       bio: "",
       location: "",
@@ -84,6 +86,34 @@ export default function Page() {
               className="flex flex-col gap-12"
             >
               <div className="max-w-xl flex flex-col gap-4">
+                <FormField
+                  control={textForm.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={textForm.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Work Email</FormLabel>
+                      <FormControl>
+                        <Input {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={textForm.control}
                   name="profession"
@@ -145,7 +175,9 @@ export default function Page() {
               <Skills data={skills} setData={setSkills} />
               <Education data={education} setData={setEducation} />
 
-              <Button type="submit">Submit</Button>
+              <Button type="submit" className="w-fit">
+                Submit
+              </Button>
             </form>
           </Form>
         </div>
