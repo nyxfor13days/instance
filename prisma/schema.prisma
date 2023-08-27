@@ -48,14 +48,22 @@ model User {
 }
 
 model Profile {
-  id         String  @id @default(cuid())
-  userId     String  @unique
-  name       String?
-  email      String? @unique
-  image      String?
-  skills     Json?   @db.Json
-  experience Json?   @db.Json
-  education  Json?   @db.Json
+  id             String  @id @default(cuid())
+  userId         String  @unique
+  name           String?
+  email          String? @unique
+  image          String?
+  skills         Json?   @db.Json
+  experience     Json?   @db.Json
+  education      Json?   @db.Json
+  socials        Json?   @db.Json
+  projects       Json?   @db.Json
+  achievements   Json?   @db.Json
+  hobbies        Json?   @db.Json
+  languages      Json?   @db.Json
+  interests      Json?   @db.Json
+  references     Json?   @db.Json
+  certifications Json?   @db.Json
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
