@@ -22,15 +22,20 @@ import {
   arrayFormSchema,
   educationSchema,
   skillSchema,
+  socialsSchema,
   textFormSchema,
 } from "./schema";
 import Education from "./_education";
+import Socials from "./_socials";
 
 export default function Page() {
   const [textData, setTextData] =
     React.useState<z.infer<typeof textFormSchema>>();
   const [arrayData, setArrayData] =
     React.useState<z.infer<typeof arrayFormSchema>>();
+  const [socials, setSocials] = React.useState<z.infer<typeof socialsSchema>[]>(
+    []
+  );
   const [skills, setSkills] = React.useState<z.infer<typeof skillSchema>[]>([]);
   const [education, setEducation] = React.useState<
     z.infer<typeof educationSchema>[]
@@ -55,7 +60,7 @@ export default function Page() {
       ...prev,
       skills: skills,
       education: education,
-      socials: [],
+      socials: socials,
       experience: [],
       projects: [],
       achievements: [],
@@ -65,7 +70,7 @@ export default function Page() {
       references: [],
       certifications: [],
     }));
-  }, [skills, education]);
+  }, [skills, education, socials]);
 
   return (
     <main className="py-24 min-h-screen flex items-center">
@@ -136,6 +141,7 @@ export default function Page() {
                 />
               </div>
 
+              <Socials data={socials} setData={setSocials} />
               <Skills data={skills} setData={setSkills} />
               <Education data={education} setData={setEducation} />
 

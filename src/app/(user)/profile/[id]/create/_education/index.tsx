@@ -101,7 +101,7 @@ export default function Education({ data, setData }: Props) {
           </DialogTrigger>
 
           <DialogContent>
-            <DialogTitle>Add a skill</DialogTitle>
+            <DialogTitle>Add an eduction</DialogTitle>
             <DialogDescription>
               Enter the details of your education background.
             </DialogDescription>
