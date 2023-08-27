@@ -16,9 +16,10 @@ interface Props {
 }
 
 export default function Profile({ params }: Props) {
+  const { id } = params;
+
   const [user, setUser] = React.useState<User>();
   const [profile, setProfile] = React.useState<Profile>();
-  const { id } = params;
 
   const router = useRouter();
 
@@ -39,14 +40,14 @@ export default function Profile({ params }: Props) {
           });
         }
       },
-      onError: (err) => {
+      onError: () => {
         toast({
           variant: "destructive",
           title: "Error",
           description: "Could not load profile.",
         });
       },
-    },
+    }
   );
 
   const { isLoading: userLoading } = useQuery(
@@ -56,7 +57,7 @@ export default function Profile({ params }: Props) {
       onSuccess: (res) => {
         setUser(res.data);
       },
-    },
+    }
   );
 
   if (profileLoading || userLoading)
